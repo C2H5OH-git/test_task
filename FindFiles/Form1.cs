@@ -87,6 +87,12 @@ namespace FindFiles
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
+            if (DirectoryTextBox.Text.Length <= 0  || FileTextBox.Text.Length <= 0)
+            {
+                MessageBox.Show("Выберите стартовую директорию поиска и выражение для поиска", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             if (WorkThread != null)
             {
                 CancellationToken.Cancel();
